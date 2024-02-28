@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+
+get_actual_layout() {
+  setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}'
+}
+
+change_layout() {
+  local keyboard=$(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') 
+  case $keyboard in
+    us) setxkbmap es && xset r rate 200 25;;
+    es) setxkbmap us && xset r rate 200 25;;
+  esac
+}
+
+case "$1" in
+  --get-layout) get_actual_layout;;
+  --change-layout) change_layout;;
+  --help|*)echo -e "Updates [options]
+
+Options:
+	--get-updates		Get the nubmer of updates available.
+	--print-updates		Print the number of available package to update.
+	--update-system		Update your system including the AUR packages.\n"
+
+esac
+
