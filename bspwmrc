@@ -41,7 +41,7 @@ processes=("sxhkd" "polybar" "dunst" "xfce4-clipman")
 
 . $HOME/.config/bspwm/polybar/Theme.sh
 sxhkd -c "$HOME"/.config/bspwm/sxhkdrc &
-xset r rate 200 20
+xset r rate 200 2h &
 nitrogen --restore &
 chmod +x scripts/* &
 dunst -config "$HOME"/.config/bspwm/dunstrc &
