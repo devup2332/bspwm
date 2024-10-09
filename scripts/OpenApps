@@ -10,6 +10,7 @@
 #	url: https://github.com/gh0stzk
 
 WIDGET_DIR="$HOME/.config/bspwm/eww"
+TERMINAL="kitty"
 
 	case "$1" in
 		--menu)
@@ -28,7 +29,7 @@ WIDGET_DIR="$HOME/.config/bspwm/eww"
 			alacritty --hold --class FloaTerm,FloaTerm -o window.dimensions.lines=22 window.dimensions.columns=90 -e Updates --update-system
 			;;
 		--checkupdates)
-			alacritty --hold --class Updating,Updating -o window.dimensions.lines=22 window.dimensions.columns=47 -e Updates --print-updates
+			$TERMINAL --hold --class Updating,Updating -o window.dimensions.lines=22 window.dimensions.columns=47 -e Updates --print-updates
 			;;
 		--ranger)
 			alacritty --class FloaTerm,FloaTerm -o window.dimensions.lines=14 window.dimensions.columns=90 -e ranger
